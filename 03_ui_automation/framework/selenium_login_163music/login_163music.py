@@ -70,10 +70,10 @@ time.sleep(2)
 phone_input = driver.find_element(By.XPATH, '/html/body/div[7]/div/div[2]/div/div/div[2]/section/div[1]/div/input')
 pwd_input = driver.find_element(By.XPATH, '/html/body/div[7]/div/div[2]/div/div/div[2]/section/div[2]/div/input')
 phone_input.clear()
-phone_input.send_keys('15298053805')
+phone_input.send_keys('？')
 time.sleep(1)
 pwd_input.clear()
-pwd_input.send_keys('15298053805wyg')
+pwd_input.send_keys('？')
 time.sleep(1)
 
 # 点击登录
