@@ -14,7 +14,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).parent
 DRIVER_PATH = PROJECT_ROOT / "utils" / "edgedriver_win64" / "msedgedriver.exe"
 
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="session")
 def driver():
     service = EdgeService(executable_path=str(DRIVER_PATH))
     options = webdriver.EdgeOptions()

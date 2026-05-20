@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""Helpers for reading CSV test data from the project's data directory."""
+"""项目 data 目录下 CSV 测试数据的读取辅助工具。"""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ DATA_DIR = PROJECT_ROOT / "data"
 
 
 def _normalize_cell(value: str | None) -> str | None:
-    """Normalize empty-like CSV values for test usage."""
+    """规范化 CSV 中类似空值的单元格，便于测试使用。"""
     if value is None:
         return None
 
@@ -26,15 +26,15 @@ def _normalize_cell(value: str | None) -> str | None:
 
 
 def load_csv_rows(filename: str, data_dir: Path = DATA_DIR) -> list[dict[str, str | None]]:
-    """Load a single CSV file and return rows as dictionaries."""
+    """读取单个 CSV 文件，将每一行转为字典返回。"""
     csv_path = data_dir / filename
     if not csv_path.is_file():
-        raise FileNotFoundError(f"CSV file not found: {csv_path}")
+        raise FileNotFoundError(f"CSV 文件不存在: {csv_path}")
 
     with csv_path.open(mode="r", encoding="utf-8-sig", newline="") as csv_file:
         reader = csv.DictReader(csv_file)
         if reader.fieldnames is None:
-            raise ValueError(f"CSV file has no header row: {csv_path}")
+            raise ValueError(f"CSV 文件没有表头行: {csv_path}")
 
         return [
             {key: _normalize_cell(value) for key, value in row.items()}
@@ -43,10 +43,10 @@ def load_csv_rows(filename: str, data_dir: Path = DATA_DIR) -> list[dict[str, st
 
 
 def find_csv_files(pattern: str = "test_*.csv", data_dir: Path = DATA_DIR) -> list[Path]:
-    """Return matching CSV files from the data directory."""
+    """返回 data 目录下匹配指定模式的所有 CSV 文件。"""
     return sorted(path for path in data_dir.glob(pattern) if path.is_file())
 
 
 def auto_load_csv(pattern: str = "test_*.csv") -> list[tuple[str, list[dict[str, str | None]]]]:
-    """Compatibility wrapper for loading all matching CSV files."""
+    """自动加载所有匹配的 CSV 文件，返回文件名和对应数据行的组合列表。"""
     return [(path.name, load_csv_rows(path.name)) for path in find_csv_files(pattern)]
