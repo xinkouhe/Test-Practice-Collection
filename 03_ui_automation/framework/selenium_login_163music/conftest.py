@@ -7,6 +7,8 @@
 
 import pytest
 import subprocess
+import shutil
+import time
 from selenium import webdriver
 from selenium.webdriver.common.proxy import Proxy
 from selenium.webdriver.common.proxy import ProxyType
@@ -20,11 +22,13 @@ from utils.log_helper import save_driver_screenshot
 
 PROJECT_ROOT = Path(__file__).parent
 DRIVER_PATH = PROJECT_ROOT / "utils" / "edgedriver_win64" / "msedgedriver.exe"
+PROFILE_ROOT = PROJECT_ROOT / ".runtime_profiles"
+CASE_COOLDOWN_SECONDS = 5
 configure_logging()
 logger = get_logger(__name__)
 
 
-def build_edge_options():
+def build_edge_options(profile_dir: Path):
     options = webdriver.EdgeOptions()
     options.add_argument(
         'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36 Edg/148.0.0.0')
@@ -33,6 +37,7 @@ def build_edge_options():
     options.add_argument('--no-proxy-server')
     options.add_argument('--proxy-server=direct://')
     options.add_argument('--proxy-bypass-list=*')
+    options.add_argument(f'--user-data-dir={profile_dir}')
     options.add_experimental_option('excludeSwitches', ['enable-automation'])
 
     # 强制当前自动化会话直连，不继承系统或全局代理。
@@ -40,6 +45,40 @@ def build_edge_options():
     proxy.proxy_type = ProxyType.DIRECT
     options.proxy = proxy
     return options
+
+
+def create_profile_dir() -> Path:
+    PROFILE_ROOT.mkdir(parents=True, exist_ok=True)
+    profile_dir = PROFILE_ROOT / f"profile_{int(time.time() * 1000)}"
+    profile_dir.mkdir(parents=True, exist_ok=True)
+    logger.info("创建独立浏览器环境: %s", profile_dir)
+    return profile_dir
+
+
+def kill_edge_processes_by_profile(profile_dir: Path) -> None:
+    profile_arg = str(profile_dir).replace("'", "''")
+    command = (
+        f"$profilePath = '{profile_arg}'; "
+        "Get-CimInstance Win32_Process -Filter \"Name = 'msedge.exe'\" | "
+        "Where-Object { $_.CommandLine -like \"*${profilePath}*\" } | "
+        "ForEach-Object { Stop-Process -Id $_.ProcessId -Force }"
+    )
+    subprocess.run(
+        ["powershell", "-NoProfile", "-Command", command],
+        capture_output=True,
+        text=True,
+        timeout=15,
+        check=False,
+    )
+
+
+def cleanup_profile_dir(profile_dir: Path) -> None:
+    if profile_dir.exists():
+        try:
+            shutil.rmtree(profile_dir, ignore_errors=False)
+            logger.info("已清理独立浏览器环境: %s", profile_dir)
+        except Exception:
+            logger.exception("清理独立浏览器环境失败: %s", profile_dir)
 
 
 def pytest_configure(config):
@@ -89,7 +128,8 @@ def pytest_sessionfinish(session, exitstatus):
 def driver():
     logger.info("准备启动 EdgeDriver: %s", DRIVER_PATH)
     service = EdgeService(executable_path=str(DRIVER_PATH))
-    options = build_edge_options()
+    profile_dir = create_profile_dir()
+    options = build_edge_options(profile_dir)
     driver = webdriver.Edge(service=service, options=options)
     if hasattr(driver.command_executor, "_client_config"):
         driver.command_executor._client_config.timeout = 30
@@ -104,6 +144,10 @@ def driver():
             logger.info("Edge 会话已关闭: %s", driver.session_id)
         except Exception:
             logger.exception("关闭 Edge 会话失败: %s", getattr(driver, "session_id", "unknown"))
+    try:
+        kill_edge_processes_by_profile(profile_dir)
+    except Exception:
+        logger.exception("按独立浏览器环境清理 Edge 进程失败: %s", profile_dir)
     try:
         service.stop()
     except Exception:
@@ -123,6 +167,9 @@ def driver():
             logger.exception("进程树清理失败: %s", process.pid)
     elif service_pid is not None:
         logger.info("EdgeDriver 进程已结束: %s", service_pid)
+    cleanup_profile_dir(profile_dir)
+    logger.info("冷却 %s 秒后进入下一个 case", CASE_COOLDOWN_SECONDS)
+    time.sleep(CASE_COOLDOWN_SECONDS)
 
 @pytest.fixture
 def login_page(driver):

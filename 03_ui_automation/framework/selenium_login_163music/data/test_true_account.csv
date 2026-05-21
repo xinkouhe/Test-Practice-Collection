@@ -1,2 +1,2 @@
 phone,password,expected_error
-******, ******, 登录成功
+17600000000,abcdef,请完成安全验证
