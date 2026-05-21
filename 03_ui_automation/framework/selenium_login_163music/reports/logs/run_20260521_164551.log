@@ -1,0 +1,69 @@
+2026-05-21 16:45:51 | INFO | ui_test | 日志初始化完成，运行日志: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\reports\logs\run_20260521_164551.log
+2026-05-21 16:45:51 | INFO | ui_test | 日志初始化完成，最新日志: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\reports\logs\latest.log
+2026-05-21 16:45:51 | INFO | ui_test.framework.selenium_login_163music.conftest | pytest 启动，最新日志文件: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\reports\logs\latest.log
+2026-05-21 16:45:51 | INFO | ui_test.framework.selenium_login_163music.conftest | 开始执行用例: tests/test_163.py::test_login_failure[case0]
+2026-05-21 16:45:51 | INFO | ui_test.framework.selenium_login_163music.conftest | 准备启动 EdgeDriver: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\utils\edgedriver_win64\msedgedriver.exe
+2026-05-21 16:45:52 | INFO | ui_test.framework.selenium_login_163music.conftest | Edge 会话已创建: fcd9461fe4c5472de4518e45551415d5
+2026-05-21 16:45:56 | INFO | ui_test.pages.login_page | 直接定位元素: ('css selector', '.m-tophead.f-pr.j-tflag a')
+2026-05-21 16:45:56 | INFO | ui_test.pages.login_page | 【1】success click_login_link
+2026-05-21 16:45:56 | INFO | ui_test.pages.login_page | 等待页面稳定: 2 秒
+2026-05-21 16:45:58 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '//a[contains(text(), "选择其他登录模式")]')
+2026-05-21 16:45:58 | INFO | ui_test.pages.login_page | 【2】success click_other_link
+2026-05-21 16:45:58 | INFO | ui_test.pages.login_page | 等待页面稳定: 2 秒
+2026-05-21 16:46:00 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '//*[@id="j-official-terms"]')
+2026-05-21 16:46:00 | INFO | ui_test.pages.login_page | 【3】success click_agreement_link
+2026-05-21 16:46:00 | INFO | ui_test.pages.login_page | 等待页面稳定: 1 秒
+2026-05-21 16:46:01 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '//div[contains(text(), "手机号登录/注册")]')
+2026-05-21 16:46:01 | INFO | ui_test.pages.login_page | 【4】success click_phone_link
+2026-05-21 16:46:01 | INFO | ui_test.pages.login_page | 等待页面稳定: 3 秒
+2026-05-21 16:46:04 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '/html/body/div[7]/div/div[2]/div/div/div[2]/div[1]/a')
+2026-05-21 16:46:04 | INFO | ui_test.pages.login_page | 【5】success click_password_link
+2026-05-21 16:46:04 | INFO | ui_test.pages.login_page | 等待页面稳定: 2 秒
+2026-05-21 16:46:06 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '/html/body/div[7]/div/div[2]/div/div/div[2]/section/div[1]/div/input')
+2026-05-21 16:46:06 | INFO | ui_test.pages.login_page | 【6】success input_phone
+2026-05-21 16:46:06 | INFO | ui_test.pages.login_page | 等待页面稳定: 1 秒
+2026-05-21 16:46:07 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '/html/body/div[7]/div/div[2]/div/div/div[2]/section/div[2]/div/input')
+2026-05-21 16:46:07 | INFO | ui_test.pages.login_page | 【7】success input_password
+2026-05-21 16:46:07 | INFO | ui_test.pages.login_page | 等待页面稳定: 1 秒
+2026-05-21 16:46:08 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '/html/body/div[7]/div/div[2]/div/div/div[2]/section/a/div')
+2026-05-21 16:46:08 | INFO | ui_test.pages.login_page | 【8】success click_login_button
+2026-05-21 16:46:29 | INFO | ui_test.framework.selenium_login_163music.conftest | 用例执行结果: tests/test_163.py::test_login_failure[case0] -> failed
+2026-05-21 16:46:29 | ERROR | ui_test.framework.selenium_login_163music.conftest | 用例失败阶段: call -> tests/test_163.py::test_login_failure[case0]
+2026-05-21 16:46:29 | ERROR | ui_test.framework.selenium_login_163music.conftest | 失败堆栈:
+tests\test_163.py:15: in test_login_failure
+    em = login_page.get_error_message()
+pages\login_page.py:79: in get_error_message
+    return self.get_text(self.ERROR_MESSAGE)
+pages\base_page.py:62: in get_text
+    element = self.find_element(locator)
+pages\base_page.py:26: in find_element
+    return self._build_wait(timeout).until(EC.visibility_of_element_located(locator))
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\selenium\webdriver\support\wait.py:121: in until
+    raise TimeoutException(message, screen, stacktrace)
+E   selenium.common.exceptions.TimeoutException: Message: 
+E   Stacktrace:
+E   	msedgedriver!GetHandleVerifier [0x7ff612e60f15+e235]
+E   	msedgedriver!GetHandleVerifier [0x7ff612e60f74+e294]
+E   	msedgedriver!GetHandleVerifier [0x7ff6131da65a+38797a]
+E   	msedgedriver!(No symbol) [0x7ff612bd3e49]
+E   	msedgedriver!(No symbol) [0x7ff612bd40c5]
+E   	msedgedriver!(No symbol) [0x7ff612c113b7]
+E   	msedgedriver!(No symbol) [0x7ff612bcaac7]
+E   	msedgedriver!(No symbol) [0x7ff612c0f112]
+E   	msedgedriver!(No symbol) [0x7ff612bca30c]
+E   	msedgedriver!(No symbol) [0x7ff612bc9566]
+E   	msedgedriver!(No symbol) [0x7ff612bca133]
+E   	msedgedriver!(No symbol) [0x7ff612c93e49]
+E   	msedgedriver!(No symbol) [0x7ff612c90413]
+E   	msedgedriver!(No symbol) [0x7ff612ca0672]
+E   	msedgedriver!GetHandleVerifier [0x7ff612e7d498+2a7b8]
+E   	msedgedriver!GetHandleVerifier [0x7ff612e85e86+331a6]
+E   	msedgedriver!GetHandleVerifier [0x7ff612e68274+15594]
+E   	msedgedriver!GetHandleVerifier [0x7ff612e68395+156b5]
+E   	msedgedriver!GetHandleVerifier [0x7ff612e556a3+29c3]
+E   	KERNEL32!BaseThreadInitThunk [0x7ffe3191e8d7+17]
+E   	ntdll!RtlUserThreadStart [0x7ffe334cc3fc+2c]
+2026-05-21 16:46:29 | ERROR | ui_test.framework.selenium_login_163music.conftest | 失败截图: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\reports\screenshots\tests_test_163.py_test_login_failure_case0__call_20260521_164629.png
+2026-05-21 16:46:31 | INFO | ui_test.framework.selenium_login_163music.conftest | Edge 会话已关闭: fcd9461fe4c5472de4518e45551415d5
+2026-05-21 16:46:31 | INFO | ui_test.framework.selenium_login_163music.conftest | EdgeDriver 进程已结束: 12656
+2026-05-21 16:46:31 | INFO | ui_test.framework.selenium_login_163music.conftest | pytest 结束，exitstatus=ExitCode.TESTS_FAILED

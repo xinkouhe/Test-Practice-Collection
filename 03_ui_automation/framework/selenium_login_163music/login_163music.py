@@ -10,24 +10,34 @@
 """
 import time
 from selenium import webdriver
+from selenium.webdriver.common.proxy import Proxy
+from selenium.webdriver.common.proxy import ProxyType
 from selenium.webdriver.edge.service import Service as EdgeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # 指明驱动路径
-service = EdgeService(executable_path=r"D:\driver\edgedriver_win64\msedgedriver.exe")
+service = EdgeService(executable_path=r"D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\utils\edgedriver_win64\msedgedriver.exe")
 options = webdriver.EdgeOptions()
 
 # 添加启动参数，不打开浏览器页面（无头模式可能会导致iframe加载不出来）
 # 伪装浏览器标识，指定本机代理转发，窗口最大化
 # 禁用自动化标识（排除默认选项-启动自动化，关闭使用自动化扩展）
 # options.add_argument('--headless')
-options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0')
-options.add_argument('--proxy-server=http://127.0.0.1:8888')
+options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36 Edg/148.0.0.0')
 options.add_argument('--start-maximized')
+options.add_argument('--no-proxy-server')
+options.add_argument('--proxy-server=direct://')
+options.add_argument('--proxy-bypass-list=*')
 options.add_experimental_option('excludeSwitches', ['enable-automation'])
 options.add_experimental_option('useAutomationExtension', False)
+
+# 强制当前自动化会话直连，不继承系统或全局代理。
+proxy = Proxy()
+proxy.proxy_type = ProxyType.DIRECT
+options.proxy = proxy
+
 driver = webdriver.Edge(service=service, options=options)
 
 driver.get('https://music.163.com')

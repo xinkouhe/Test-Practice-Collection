@@ -1,0 +1,53 @@
+2026-05-21 14:35:30 | INFO | ui_test | 日志初始化完成，运行日志: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\reports\logs\run_20260521_143530.log
+2026-05-21 14:35:30 | INFO | ui_test | 日志初始化完成，最新日志: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\reports\logs\latest.log
+2026-05-21 14:35:30 | INFO | ui_test.framework.selenium_login_163music.conftest | pytest 启动，最新日志文件: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\reports\logs\latest.log
+2026-05-21 14:35:30 | INFO | ui_test.framework.selenium_login_163music.conftest | 开始执行用例: tests/test_163.py::test_login_failure[case0]
+2026-05-21 14:35:30 | INFO | ui_test.framework.selenium_login_163music.conftest | 准备启动 EdgeDriver: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\utils\edgedriver_win64\msedgedriver.exe
+2026-05-21 14:35:31 | INFO | ui_test.framework.selenium_login_163music.conftest | Edge 会话已创建: 160972ddd70bf8fcea28f0e6fbebcd31
+2026-05-21 14:35:38 | INFO | ui_test.framework.selenium_login_163music.conftest | 用例执行结果: tests/test_163.py::test_login_failure[case0] -> failed
+2026-05-21 14:35:38 | ERROR | ui_test.framework.selenium_login_163music.conftest | 用例失败阶段: call -> tests/test_163.py::test_login_failure[case0]
+2026-05-21 14:35:38 | ERROR | ui_test.framework.selenium_login_163music.conftest | 失败堆栈:
+tests\test_163.py:10: in test_login_failure
+    driver.get("https://music.163.com")
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\selenium\webdriver\remote\webdriver.py:470: in get
+    self.execute(Command.GET, {"url": url})
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\selenium\webdriver\remote\webdriver.py:450: in execute
+    self.error_handler.check_response(response)
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\selenium\webdriver\remote\errorhandler.py:232: in check_response
+    raise exception_class(message, screen, stacktrace)
+E   selenium.common.exceptions.WebDriverException: Message: unknown error: net::ERR_CONNECTION_CLOSED
+E     (Session info: MicrosoftEdge=148.0.3967.70)
+E   Stacktrace:
+E   	msedgedriver!GetHandleVerifier [0x7ff7597f0f15+e235]
+E   	msedgedriver!GetHandleVerifier [0x7ff7597f0f74+e294]
+E   	msedgedriver!GetHandleVerifier [0x7ff759b6a65a+38797a]
+E   	msedgedriver!(No symbol) [0x7ff7595185f1]
+E   	msedgedriver!(No symbol) [0x7ff75950db4f]
+E   	msedgedriver!(No symbol) [0x7ff75950f16e]
+E   	msedgedriver!(No symbol) [0x7ff75950ddbf]
+E   	msedgedriver!(No symbol) [0x7ff75950d9c0]
+E   	msedgedriver!(No symbol) [0x7ff75950d725]
+E   	msedgedriver!(No symbol) [0x7ff75950b821]
+E   	msedgedriver!(No symbol) [0x7ff75950bea2]
+E   	msedgedriver!(No symbol) [0x7ff75951e1f8]
+E   	msedgedriver!(No symbol) [0x7ff75959f6f4]
+E   	msedgedriver!(No symbol) [0x7ff7595841ea]
+E   	msedgedriver!(No symbol) [0x7ff75955aac7]
+E   	msedgedriver!(No symbol) [0x7ff75959f112]
+E   	msedgedriver!(No symbol) [0x7ff75955a30c]
+E   	msedgedriver!(No symbol) [0x7ff759559566]
+E   	msedgedriver!(No symbol) [0x7ff75955a133]
+E   	msedgedriver!(No symbol) [0x7ff759623e49]
+E   	msedgedriver!(No symbol) [0x7ff759620413]
+E   	msedgedriver!(No symbol) [0x7ff759630672]
+E   	msedgedriver!GetHandleVerifier [0x7ff75980d498+2a7b8]
+E   	msedgedriver!GetHandleVerifier [0x7ff759815e86+331a6]
+E   	msedgedriver!GetHandleVerifier [0x7ff7597f8274+15594]
+E   	msedgedriver!GetHandleVerifier [0x7ff7597f8395+156b5]
+E   	msedgedriver!GetHandleVerifier [0x7ff7597e56a3+29c3]
+E   	KERNEL32!BaseThreadInitThunk [0x7ffe3191e8d7+17]
+E   	ntdll!RtlUserThreadStart [0x7ffe334cc3fc+2c]
+2026-05-21 14:35:38 | ERROR | ui_test.framework.selenium_login_163music.conftest | 失败截图: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\reports\screenshots\tests_test_163.py_test_login_failure_case0__call_20260521_143538.png
+2026-05-21 14:35:40 | INFO | ui_test.framework.selenium_login_163music.conftest | Edge 会话已关闭: 160972ddd70bf8fcea28f0e6fbebcd31
+2026-05-21 14:35:40 | INFO | ui_test.framework.selenium_login_163music.conftest | EdgeDriver 进程已结束: 29620
+2026-05-21 14:35:40 | INFO | ui_test.framework.selenium_login_163music.conftest | pytest 结束，exitstatus=ExitCode.TESTS_FAILED

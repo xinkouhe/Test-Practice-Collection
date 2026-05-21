@@ -1,0 +1,32 @@
+2026-05-21 17:29:32 | INFO | ui_test | 日志初始化完成，运行日志: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\reports\logs\run_20260521_172932.log
+2026-05-21 17:29:32 | INFO | ui_test | 日志初始化完成，最新日志: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\reports\logs\latest.log
+2026-05-21 17:29:32 | INFO | ui_test.framework.selenium_login_163music.conftest | pytest 启动，最新日志文件: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\reports\logs\latest.log
+2026-05-21 17:29:32 | INFO | ui_test.framework.selenium_login_163music.conftest | 开始执行用例: tests/test_163.py::test_login_failure[case0]
+2026-05-21 17:29:32 | INFO | ui_test.framework.selenium_login_163music.conftest | 准备启动 EdgeDriver: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\utils\edgedriver_win64\msedgedriver.exe
+2026-05-21 17:29:33 | INFO | ui_test.framework.selenium_login_163music.conftest | Edge 会话已创建: 832c0a9bbcc2a38d875078c7dc4ea088
+2026-05-21 17:29:36 | INFO | ui_test.pages.login_page | 【1】success click_login_link
+2026-05-21 17:29:36 | INFO | ui_test.pages.login_page | 等待页面稳定: 2 秒
+2026-05-21 17:29:38 | INFO | ui_test.pages.login_page | 【2】success click_other_link
+2026-05-21 17:29:38 | INFO | ui_test.pages.login_page | 等待页面稳定: 2 秒
+2026-05-21 17:29:40 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '//*[@id="j-official-terms"]')
+2026-05-21 17:29:40 | INFO | ui_test.pages.login_page | 【3】success click_agreement_link
+2026-05-21 17:29:40 | INFO | ui_test.pages.login_page | 等待页面稳定: 1 秒
+2026-05-21 17:29:41 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '//div[contains(text(), "手机号登录/注册")]')
+2026-05-21 17:29:42 | INFO | ui_test.pages.login_page | 【4】success click_phone_link
+2026-05-21 17:29:42 | INFO | ui_test.pages.login_page | 等待页面稳定: 3 秒
+2026-05-21 17:29:45 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '/html/body/div[7]/div/div[2]/div/div/div[2]/div[1]/a')
+2026-05-21 17:29:45 | INFO | ui_test.pages.login_page | 【5】success click_password_link
+2026-05-21 17:29:45 | INFO | ui_test.pages.login_page | 等待页面稳定: 2 秒
+2026-05-21 17:29:47 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '/html/body/div[7]/div/div[2]/div/div/div[2]/section/div[1]/div/input')
+2026-05-21 17:29:47 | INFO | ui_test.pages.login_page | 【6】success input_phone
+2026-05-21 17:29:47 | INFO | ui_test.pages.login_page | 等待页面稳定: 1 秒
+2026-05-21 17:29:48 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '/html/body/div[7]/div/div[2]/div/div/div[2]/section/div[2]/div/input')
+2026-05-21 17:29:48 | INFO | ui_test.pages.login_page | 【7】success input_password
+2026-05-21 17:29:48 | INFO | ui_test.pages.login_page | 等待页面稳定: 1 秒
+2026-05-21 17:29:49 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '/html/body/div[7]/div/div[2]/div/div/div[2]/section/a/div')
+2026-05-21 17:29:49 | INFO | ui_test.pages.login_page | 【8】success click_login_button
+2026-05-21 17:29:49 | INFO | ui_test.pages.login_page | 命中错误提示定位器: ('xpath', '/html/body/div[7]/div/div[2]/div/div/div[2]/section/div[3]/span') -> 请输入登录密码
+2026-05-21 17:29:49 | INFO | ui_test.framework.selenium_login_163music.conftest | 用例执行结果: tests/test_163.py::test_login_failure[case0] -> passed
+2026-05-21 17:29:51 | INFO | ui_test.framework.selenium_login_163music.conftest | Edge 会话已关闭: 832c0a9bbcc2a38d875078c7dc4ea088
+2026-05-21 17:29:51 | INFO | ui_test.framework.selenium_login_163music.conftest | EdgeDriver 进程已结束: 20560
+2026-05-21 17:29:51 | INFO | ui_test.framework.selenium_login_163music.conftest | pytest 结束，exitstatus=0

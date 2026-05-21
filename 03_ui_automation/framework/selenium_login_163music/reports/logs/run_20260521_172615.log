@@ -1,0 +1,127 @@
+2026-05-21 17:26:15 | INFO | ui_test | 日志初始化完成，运行日志: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\reports\logs\run_20260521_172615.log
+2026-05-21 17:26:15 | INFO | ui_test | 日志初始化完成，最新日志: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\reports\logs\latest.log
+2026-05-21 17:26:15 | INFO | ui_test.framework.selenium_login_163music.conftest | pytest 启动，最新日志文件: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\reports\logs\latest.log
+2026-05-21 17:26:15 | INFO | ui_test.framework.selenium_login_163music.conftest | 开始执行用例: tests/test_163.py::test_login_failure[case0]
+2026-05-21 17:26:15 | INFO | ui_test.framework.selenium_login_163music.conftest | 准备启动 EdgeDriver: D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\utils\edgedriver_win64\msedgedriver.exe
+2026-05-21 17:26:16 | INFO | ui_test.framework.selenium_login_163music.conftest | Edge 会话已创建: a8dc44d5f3ac8652cdb7a6d7a14112b8
+2026-05-21 17:26:25 | INFO | ui_test.pages.login_page | 【1】success click_login_link
+2026-05-21 17:26:25 | INFO | ui_test.pages.login_page | 等待页面稳定: 2 秒
+2026-05-21 17:26:27 | INFO | ui_test.pages.login_page | 【2】success click_other_link
+2026-05-21 17:26:27 | INFO | ui_test.pages.login_page | 等待页面稳定: 2 秒
+2026-05-21 17:26:29 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '//*[@id="j-official-terms"]')
+2026-05-21 17:26:29 | INFO | ui_test.pages.login_page | 【3】success click_agreement_link
+2026-05-21 17:26:29 | INFO | ui_test.pages.login_page | 等待页面稳定: 1 秒
+2026-05-21 17:26:30 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '//div[contains(text(), "手机号登录/注册")]')
+2026-05-21 17:26:30 | INFO | ui_test.pages.login_page | 【4】success click_phone_link
+2026-05-21 17:26:30 | INFO | ui_test.pages.login_page | 等待页面稳定: 3 秒
+2026-05-21 17:26:33 | INFO | ui_test.pages.login_page | 直接定位元素: ('xpath', '/html/body/div[7]/div/div[2]/div/div/div[2]/div[1]/a')
+2026-05-21 17:27:28 | ERROR | ui_test.pages.login_page | 登录流程执行失败
+Traceback (most recent call last):
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "D:\Projects\miniconda3\envs\ui_test\lib\http\client.py", line 1395, in getresponse
+    response.begin()
+  File "D:\Projects\miniconda3\envs\ui_test\lib\http\client.py", line 323, in begin
+    version, status, reason = self._read_status()
+  File "D:\Projects\miniconda3\envs\ui_test\lib\http\client.py", line 284, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "D:\Projects\miniconda3\envs\ui_test\lib\socket.py", line 717, in readinto
+    return self._sock.recv_into(b)
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\pages\login_page.py", line 140, in login
+    self.click_password_link()
+  File "D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\pages\login_page.py", line 95, in click_password_link
+    self.js_click_raw(self.PASSWORD_LINK)
+  File "D:\Projects\workspace\test-practice-collection\03_ui_automation\framework\selenium_login_163music\pages\login_page.py", line 52, in js_click_raw
+    self.driver.execute_script("arguments[0].click();", element)
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 536, in execute_script
+    return self.execute(command, {"script": script, "args": converted_args})["value"]
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 447, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 407, in execute
+    return self._request(command_info[0], url, body=data)
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 431, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\_request_methods.py", line 143, in request
+    return self.request_encode_body(
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\poolmanager.py", line 457, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\util\retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='localhost', port=55377): Read timed out. (read timeout=30)
+2026-05-21 17:27:28 | INFO | ui_test.pages.login_page | 【ERROR】卡在上面某一步，具体错误: HTTPConnectionPool(host='localhost', port=55377): Read timed out. (read timeout=30)
+2026-05-21 17:27:28 | INFO | ui_test.framework.selenium_login_163music.conftest | 用例执行结果: tests/test_163.py::test_login_failure[case0] -> failed
+2026-05-21 17:27:28 | ERROR | ui_test.framework.selenium_login_163music.conftest | 用例失败阶段: call -> tests/test_163.py::test_login_failure[case0]
+2026-05-21 17:27:28 | ERROR | ui_test.framework.selenium_login_163music.conftest | 失败堆栈:
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\connectionpool.py:534: in _make_request
+    response = conn.getresponse()
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\connection.py:571: in getresponse
+    httplib_response = super().getresponse()
+D:\Projects\miniconda3\envs\ui_test\lib\http\client.py:1395: in getresponse
+    response.begin()
+D:\Projects\miniconda3\envs\ui_test\lib\http\client.py:323: in begin
+    version, status, reason = self._read_status()
+D:\Projects\miniconda3\envs\ui_test\lib\http\client.py:284: in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+D:\Projects\miniconda3\envs\ui_test\lib\socket.py:717: in readinto
+    return self._sock.recv_into(b)
+E   TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+tests\test_163.py:13: in test_login_failure
+    login_page.login(case["phone"], case["password"])
+pages\login_page.py:140: in login
+    self.click_password_link()
+pages\login_page.py:95: in click_password_link
+    self.js_click_raw(self.PASSWORD_LINK)
+pages\login_page.py:52: in js_click_raw
+    self.driver.execute_script("arguments[0].click();", element)
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\selenium\webdriver\remote\webdriver.py:536: in execute_script
+    return self.execute(command, {"script": script, "args": converted_args})["value"]
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\selenium\webdriver\remote\webdriver.py:447: in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\selenium\webdriver\remote\remote_connection.py:407: in execute
+    return self._request(command_info[0], url, body=data)
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\selenium\webdriver\remote\remote_connection.py:431: in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\_request_methods.py:143: in request
+    return self.request_encode_body(
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\_request_methods.py:278: in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\poolmanager.py:457: in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\connectionpool.py:841: in urlopen
+    retries = retries.increment(
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\util\retry.py:490: in increment
+    raise reraise(type(error), error, _stacktrace)
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\util\util.py:39: in reraise
+    raise value
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\connectionpool.py:787: in urlopen
+    response = self._make_request(
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\connectionpool.py:536: in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+D:\Projects\miniconda3\envs\ui_test\lib\site-packages\urllib3\connectionpool.py:367: in _raise_timeout
+    raise ReadTimeoutError(
+E   urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='localhost', port=55377): Read timed out. (read timeout=30)
+2026-05-21 17:27:28 | WARNING | ui_test.framework.selenium_login_163music.conftest | 检测到 driver 已失联，本次失败跳过截图
+2026-05-21 17:27:28 | WARNING | ui_test.framework.selenium_login_163music.conftest | 本次跳过 driver.quit()，直接清理 EdgeDriver 进程
+2026-05-21 17:27:40 | INFO | ui_test.framework.selenium_login_163music.conftest | EdgeDriver 进程已结束: 24492
+2026-05-21 17:27:40 | INFO | ui_test.framework.selenium_login_163music.conftest | pytest 结束，exitstatus=ExitCode.TESTS_FAILED
