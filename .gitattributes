@@ -1,0 +1,10 @@
+# Keep generated or vendor content out of GitHub language stats.
+.idea/** linguist-vendored
+03_ui_automation/framework/selenium_login_163music/reports/** linguist-generated
+03_ui_automation/framework/selenium_login_163music/utils/edgedriver_win64/** linguist-vendored
+**/__pycache__/** linguist-generated
+*.pyc linguist-generated
+*.log linguist-generated
+*.png linguist-generated
+*.csv linguist-generated
+*.xlsx linguist-generated
